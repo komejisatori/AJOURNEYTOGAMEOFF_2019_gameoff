@@ -5,15 +5,17 @@ using UnityEngine;
 public class window_select : MonoBehaviour, IComparer<window_select>
 {
     // Start is called before the first frame update
-    public bool m_activate;
+    public bool m_initactivate;
     public int m_z_index; // windows init order
+    public BoxCollider2D m_trigger;
     private BoxCollider2D[] m_colliders;
     
     void Start()
     {
         this.SetZIndex();
         m_colliders = this.GetComponentsInChildren<BoxCollider2D>();
-        if (!m_activate)
+        
+        if (!m_initactivate)
         {
             foreach (BoxCollider2D collider in  m_colliders)
             {
@@ -21,6 +23,7 @@ public class window_select : MonoBehaviour, IComparer<window_select>
                     collider.enabled = false;
             }
         }
+        
     }
 
     // Update is called once per frame
@@ -31,17 +34,37 @@ public class window_select : MonoBehaviour, IComparer<window_select>
 
     void OnMouseDown()
     {
-        if (!m_activate)
-        {
-            m_activate = true;
+        window_stack stack = window_stack.GetInstance();
+        int avatar_index = CheckIn();
+        stack.PopWindow(m_z_index);
+        stack.SetWindowCollider(avatar_index);    
+    }
+
+    public void SetActivate(bool activate)
+    {
+        if (activate)
             foreach (BoxCollider2D collider in m_colliders)
             {
                 if (!collider.isTrigger)
                     collider.enabled = true;
             }
-        }
-        window_stack stack = window_stack.GetInstance();
-        stack.PopWindow(m_z_index);
+        else
+            foreach (BoxCollider2D collider in m_colliders)
+            {
+                if (!collider.isTrigger)
+                    collider.enabled = false;
+            }
+    }
+
+    public int CheckIn()
+    {
+        avatar_move avatar = FindObjectOfType<avatar_move>();
+        if (Intersect(avatar.GetComponent<BoxCollider2D>()))
+            avatar.m_z_index = 0;
+        else
+            if (avatar.m_z_index < m_z_index)
+                avatar.m_z_index += 1;
+        return avatar.m_z_index;
     }
 
     public void SetZIndex()
@@ -69,5 +92,17 @@ public class window_select : MonoBehaviour, IComparer<window_select>
         {
             return 0;//不变
         }
+    }
+
+    private bool Intersect(BoxCollider2D avatar_collider)
+    {
+        Vector3 avatar_center = avatar_collider.bounds.center;
+        Vector3 box_center = this.m_trigger.bounds.center;
+        float box_extent_x = this.m_trigger.bounds.extents.x;
+        float box_extent_y = this.m_trigger.bounds.extents.y;
+        if (avatar_center.x < (box_center.x + box_extent_x) && avatar_center.x > (box_center.x - box_extent_x))
+            if (avatar_center.y < (box_center.y + box_extent_y) && avatar_center.y > (box_center.y - box_extent_y))
+                return true;
+        return false;
     }
 }

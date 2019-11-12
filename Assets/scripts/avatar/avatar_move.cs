@@ -7,7 +7,7 @@ public class avatar_move : MonoBehaviour
     private Rigidbody2D m_rig;
     public int m_speed_horizon;
     public int m_speed_verical; // jump force
-    
+    public int m_z_index;
 
     // Start is called before the first frame update
     void Start()

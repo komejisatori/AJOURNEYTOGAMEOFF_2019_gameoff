@@ -112,49 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &61048121
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 61048123}
-  - component: {fileID: 61048122}
-  m_Layer: 0
-  m_Name: windowstack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &61048122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61048121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e08fbc72a83314db693e05ac8f1ab3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &61048123
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61048121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9948575, y: 0.5111673, z: -0.076217525}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &83919678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,7 +162,7 @@ PrefabInstance:
     - target: {fileID: 1358649925506819764, guid: 95ed1a80414afdc42959a2333860d451,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1358649925506819764, guid: 95ed1a80414afdc42959a2333860d451,
         type: 3}
@@ -230,6 +187,11 @@ PrefabInstance:
     - target: {fileID: 3896140158419565515, guid: 95ed1a80414afdc42959a2333860d451,
         type: 3}
       propertyPath: m_activate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896140158419565515, guid: 95ed1a80414afdc42959a2333860d451,
+        type: 3}
+      propertyPath: m_initactivate
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -314,7 +276,7 @@ PrefabInstance:
     - target: {fileID: 889360395337584251, guid: 50e4732d20e1acc429a0e1fafcebebae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 889360395337584251, guid: 50e4732d20e1acc429a0e1fafcebebae,
         type: 3}
@@ -466,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 1358649925506819764, guid: 95ed1a80414afdc42959a2333860d451,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1358649925506819764, guid: 95ed1a80414afdc42959a2333860d451,
         type: 3}

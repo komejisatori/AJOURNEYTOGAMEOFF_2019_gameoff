@@ -9,9 +9,11 @@ public class window_stack
     // Start is called before the first frame update
     private List<window_select> m_windows_stack ;
     private static window_stack instance;
+    private int m_len = 0;
     private window_stack()
     {
         window_select[] windows = UnityEngine.Object.FindObjectsOfType<window_select>();
+        m_len = windows.Length;
         Debug.Log(windows.Length);
         m_windows_stack = new List<window_select>(windows);
         m_windows_stack.Sort(new window_select());
@@ -39,5 +41,15 @@ public class window_stack
         m_windows_stack[0].SetZIndex();
     }
 
+    public void SetWindowCollider(int z_index)
+    {
+        for(int i = 0; i < m_len; i++)
+        {
+            if (i <= z_index)
+                m_windows_stack[i].SetActivate(true);
+            if (i > z_index)
+                m_windows_stack[i].SetActivate(false);
+        }
+    }
 }
 
