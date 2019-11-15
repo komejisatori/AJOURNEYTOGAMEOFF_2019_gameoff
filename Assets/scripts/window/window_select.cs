@@ -34,10 +34,12 @@ public class window_select : MonoBehaviour, IComparer<window_select>
 
     void OnMouseDown()
     {
+        /*
         window_stack stack = window_stack.GetInstance();
         int avatar_index = CheckIn();
         stack.PopWindow(m_z_index);
         stack.SetWindowCollider(avatar_index);    
+        */
     }
 
     public void SetActivate(bool activate)
