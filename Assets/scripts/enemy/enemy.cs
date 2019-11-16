@@ -11,13 +11,13 @@ public class enemy : MonoBehaviour
     public int m_type = 0; //0 for attacking players 1 for not attacking players
     public bool m_hidden = false;
     public int m_moverange = 40;
-    public window_select m_window_belong_to;
+    public int m_window_belong_to;
     private Vector2 m_init_pos;
     private int m_jump_height = 2;
     private Rigidbody2D m_rig;
     public float m_think_time;
     private float m_last_think_time;
-
+    public bool m_outof_bounds = false;
     void Start()
     {
         // if hidden then cannot be seen
@@ -28,19 +28,10 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_window_belong_to.m_z_index == 0)
-        {
-            if (SearchForAvatar())
-            {
-                MoveTowardsAvatar();
-            }
-            else
-               MoveAround();
-        }
+        if (SearchForAvatar())            
+            MoveTowardsAvatar();            
         else
-        {
             MoveAround();
-        }
     }
 
     bool SearchForAvatar()

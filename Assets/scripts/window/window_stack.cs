@@ -43,12 +43,12 @@ public class window_stack
 
     public void SetWindowCollider(int z_index)
     {
-        for(int i = 0; i < m_len; i++)
+        for(int i = m_len-1; i >= 0; i--)
         {
-            if (i <= z_index)
-                m_windows_stack[i].SetActivate(true);
             if (i > z_index)
                 m_windows_stack[i].SetActivate(false);
+            if (i <= z_index)
+                m_windows_stack[i].SetActivate(true);   
         }
     }
 }

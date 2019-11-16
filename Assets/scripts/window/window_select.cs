@@ -9,16 +9,21 @@ public class window_select : MonoBehaviour, IComparer<window_select>
     public int m_z_index; // windows init order
     public BoxCollider2D m_trigger;
     private BoxCollider2D[] m_colliders;
-    
     void Start()
     {
         this.SetZIndex();
         m_colliders = this.GetComponentsInChildren<BoxCollider2D>();
-
+        float width = this.GetComponent<BoxCollider2D>().bounds.extents.x;
+        float height = this.GetComponent<BoxCollider2D>().bounds.extents.y;
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y),
+            new Vector2(width * 2, height * 2), 0);
         if (!m_initactivate)
         {
-            foreach(Transform tran in GetComponentsInChildren<Transform>())
+            foreach (Transform tran in GetComponentsInChildren<Transform>())
                 tran.gameObject.layer = LayerMask.NameToLayer("not_activate_layer");
+            foreach(Collider2D hit in hitColliders)
+                if (hit.GetComponent<enemy>())
+                    hit.GetComponent<enemy>().gameObject.layer = LayerMask.NameToLayer("not_activate_layer");
             /*
             foreach (BoxCollider2D collider in m_colliders)
             {
@@ -28,8 +33,13 @@ public class window_select : MonoBehaviour, IComparer<window_select>
             */
         }
         else
+        {
             foreach (Transform tran in GetComponentsInChildren<Transform>())
                 tran.gameObject.layer = LayerMask.NameToLayer("activate_layer");
+            foreach (Collider2D hit in hitColliders)
+                if (hit.GetComponent<enemy>())
+                    hit.GetComponent<enemy>().gameObject.layer = LayerMask.NameToLayer("avatar");
+        }
 
     }
 
@@ -52,8 +62,20 @@ public class window_select : MonoBehaviour, IComparer<window_select>
     public void SetActivate(bool activate)
     {
         if (activate)
+        {
             foreach (Transform tran in GetComponentsInChildren<Transform>())
                 tran.gameObject.layer = LayerMask.NameToLayer("activate_layer");
+            float width = this.GetComponent<BoxCollider2D>().bounds.extents.x;
+            float height = this.GetComponent<BoxCollider2D>().bounds.extents.y;
+            Collider2D[] hitColliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y),
+                new Vector2(width * 2, height * 2), 0);
+            foreach (Collider2D hit in hitColliders)
+                if (hit.GetComponent<enemy>())
+                {
+                    hit.GetComponent<enemy>().gameObject.layer = LayerMask.NameToLayer("avatar");
+                    
+                }
+        }
         /*
         foreach (BoxCollider2D collider in m_colliders)
         {
@@ -62,8 +84,21 @@ public class window_select : MonoBehaviour, IComparer<window_select>
         }
         */
         else
+        {
             foreach (Transform tran in GetComponentsInChildren<Transform>())
                 tran.gameObject.layer = LayerMask.NameToLayer("not_activate_layer");
+            float width = this.GetComponent<BoxCollider2D>().bounds.extents.x;
+            float height = this.GetComponent<BoxCollider2D>().bounds.extents.y;
+            Collider2D[] hitColliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y),
+                new Vector2(width*2, height*2), 0);
+            foreach (Collider2D hit in hitColliders)
+                if (hit.GetComponent<enemy>())
+                {
+                    
+                    hit.GetComponent<enemy>().gameObject.layer = LayerMask.NameToLayer("not_activate_layer");
+                }
+
+        }
         /*
         foreach (BoxCollider2D collider in m_colliders)
         {
@@ -75,13 +110,8 @@ public class window_select : MonoBehaviour, IComparer<window_select>
 
     public int CheckIn()
     {
-        avatar_move avatar = FindObjectOfType<avatar_move>();
-        if (Intersect(avatar.GetComponent<BoxCollider2D>()))
-            avatar.m_z_index = 0;
-        else
-            if (avatar.m_z_index < m_z_index)
-                avatar.m_z_index += 1;
-        return avatar.m_z_index;
+        // it must in
+        return 0;
     }
 
     public void SetZIndex()

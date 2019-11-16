@@ -22,9 +22,8 @@ public class avatar_shiftwindow : MonoBehaviour
                 if (window && window.m_z_index != 0)
                 {
                     window_stack stack = window_stack.GetInstance();
-                    int avatar_index = window.CheckIn();
                     stack.PopWindow(window.m_z_index);
-                    stack.SetWindowCollider(avatar_index);
+                    stack.SetWindowCollider(0);
                     break;
                 }
             }
