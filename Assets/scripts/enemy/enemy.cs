@@ -13,9 +13,9 @@ public class enemy : MonoBehaviour
     public int m_moverange = 40;
     public window_select m_window_belong_to;
     private Vector2 m_init_pos;
-    private int m_jump_height = 10;
+    private int m_jump_height = 2;
     private Rigidbody2D m_rig;
-    public float m_think_time = 2f;
+    public float m_think_time;
     private float m_last_think_time;
 
     void Start()

@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
+  - activate_layer
+  - not_activate_layer
   - avatar
-  - below-avatar
-  - upon-avatar
-  - 
+  - enemy
   - 
   - 
   - 

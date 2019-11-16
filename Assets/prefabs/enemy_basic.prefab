@@ -142,9 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HP: 100
-  m_speed: 5
+  m_speed: 1
   m_speed_vertical: 10
   m_type: 0
-  m_hidden: 0
+  m_hidden: 1
   m_moverange: 40
   m_window_belong_to: {fileID: 0}
+  m_think_time: 1

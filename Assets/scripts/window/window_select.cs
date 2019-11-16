@@ -14,16 +14,23 @@ public class window_select : MonoBehaviour, IComparer<window_select>
     {
         this.SetZIndex();
         m_colliders = this.GetComponentsInChildren<BoxCollider2D>();
-        
+
         if (!m_initactivate)
         {
-            foreach (BoxCollider2D collider in  m_colliders)
+            foreach(Transform tran in GetComponentsInChildren<Transform>())
+                tran.gameObject.layer = LayerMask.NameToLayer("not_activate_layer");
+            /*
+            foreach (BoxCollider2D collider in m_colliders)
             {
                 if (!collider.isTrigger)
                     collider.enabled = false;
             }
+            */
         }
-        
+        else
+            foreach (Transform tran in GetComponentsInChildren<Transform>())
+                tran.gameObject.layer = LayerMask.NameToLayer("activate_layer");
+
     }
 
     // Update is called once per frame
@@ -45,17 +52,25 @@ public class window_select : MonoBehaviour, IComparer<window_select>
     public void SetActivate(bool activate)
     {
         if (activate)
-            foreach (BoxCollider2D collider in m_colliders)
-            {
-                if (!collider.isTrigger)
-                    collider.enabled = true;
-            }
+            foreach (Transform tran in GetComponentsInChildren<Transform>())
+                tran.gameObject.layer = LayerMask.NameToLayer("activate_layer");
+        /*
+        foreach (BoxCollider2D collider in m_colliders)
+        {
+            if (!collider.isTrigger)
+                collider.enabled = true;
+        }
+        */
         else
-            foreach (BoxCollider2D collider in m_colliders)
-            {
-                if (!collider.isTrigger)
-                    collider.enabled = false;
-            }
+            foreach (Transform tran in GetComponentsInChildren<Transform>())
+                tran.gameObject.layer = LayerMask.NameToLayer("not_activate_layer");
+        /*
+        foreach (BoxCollider2D collider in m_colliders)
+        {
+            if (!collider.isTrigger)
+                collider.enabled = false;
+        }
+        */
     }
 
     public int CheckIn()
