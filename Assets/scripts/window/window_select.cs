@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class window_select : MonoBehaviour, IComparer<window_select>
 {
     // Start is called before the first frame update
@@ -117,10 +117,15 @@ public class window_select : MonoBehaviour, IComparer<window_select>
     public void SetZIndex()
     {
         windows_frame[] sons = this.GetComponentsInChildren<windows_frame>();
+        Canvas[] cans = this.GetComponentsInChildren<Canvas>();
         windows_body body = this.GetComponentInChildren<windows_body>();
         foreach (windows_frame son in sons)
         { 
             son.transform.position = new Vector3(son.transform.position.x, son.transform.position.y, m_z_index * 10);
+        }
+        foreach (Canvas can in cans)
+        {
+            can.transform.position = new Vector3(can.transform.position.x, can.transform.position.y, m_z_index * 10 + 0.2f);
         }
         body.transform.position = new Vector3(body.transform.position.x, body.transform.position.y, m_z_index * 10 + 1);
     }
