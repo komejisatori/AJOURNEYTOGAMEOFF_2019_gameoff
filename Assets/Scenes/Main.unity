@@ -464,6 +464,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4624015147529676090, guid: 50e4732d20e1acc429a0e1fafcebebae,
+        type: 3}
+      propertyPath: distanceY
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624015147529676090, guid: 50e4732d20e1acc429a0e1fafcebebae,
+        type: 3}
+      propertyPath: smooth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e4732d20e1acc429a0e1fafcebebae, type: 3}
 --- !u!1 &519420028
@@ -477,6 +487,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -492,6 +503,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6267a38caf3761a4498e74299557457a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceZ: 5
+  distanceY: -5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -713,6 +738,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Window (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896140158419565515, guid: 95ed1a80414afdc42959a2333860d451,
+        type: 3}
+      propertyPath: m_z_index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896140158419565515, guid: 95ed1a80414afdc42959a2333860d451,
+        type: 3}
+      propertyPath: m_initactivate
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1358649925506819764, guid: 95ed1a80414afdc42959a2333860d451,
         type: 3}
@@ -1431,6 +1466,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Window (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896140158419565515, guid: 95ed1a80414afdc42959a2333860d451,
+        type: 3}
+      propertyPath: m_initactivate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896140158419565515, guid: 95ed1a80414afdc42959a2333860d451,
+        type: 3}
+      propertyPath: m_z_index
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1358649925506819764, guid: 95ed1a80414afdc42959a2333860d451,
         type: 3}
