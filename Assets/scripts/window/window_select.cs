@@ -70,11 +70,18 @@ public class window_select : MonoBehaviour, IComparer<window_select>
             Collider2D[] hitColliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y),
                 new Vector2(width * 2, height * 2), 0);
             foreach (Collider2D hit in hitColliders)
+            {
                 if (hit.GetComponent<enemy>())
                 {
                     hit.GetComponent<enemy>().gameObject.layer = LayerMask.NameToLayer("avatar");
-                    
+
                 }
+                if (hit.GetComponent<terrian>())
+                {
+                    hit.GetComponent<terrian>().GiveGravity();
+                    hit.GetComponent<terrian>().gameObject.layer = LayerMask.NameToLayer("avatar");
+                }
+            }
         }
         /*
         foreach (BoxCollider2D collider in m_colliders)
