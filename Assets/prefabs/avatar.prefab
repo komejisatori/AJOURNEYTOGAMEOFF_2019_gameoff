@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2001196062344786718}
   - component: {fileID: 4624015147529676090}
   - component: {fileID: 4790890663716031302}
+  - component: {fileID: 4505620732138997338}
   m_Layer: 10
   m_Name: avatar
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec2e4dafecd2a444baf6b51928f042ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53fdeff42e7e99a458cecf2b58f857e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,18 +97,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.059258997, y: -0.06220138}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 3.2, y: 3.2}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 1.1614908, y: 2.0920076}
   m_EdgeRadius: 0
 --- !u!50 &2001196062344786718
 Rigidbody2D:
@@ -144,7 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed_horizon: 200
   m_speed_verical: 20000
+  distanceY: 0
   m_z_index: 0
+  smooth: 0
 --- !u!114 &4790890663716031302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,5 +158,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daa37247867c4cd4a9427b8531ce1d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4505620732138997338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395980038595204915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f2cd677b9b68c488c3ef3985da4908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

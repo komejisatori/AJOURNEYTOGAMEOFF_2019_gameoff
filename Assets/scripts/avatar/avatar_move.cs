@@ -34,7 +34,7 @@ public class avatar_move : MonoBehaviour
         {
             cy = m_rig.position.y - distanceY;
         }
-        m_camera.position = Vector3.Lerp(m_camera.position,  new Vector3(cx, cy, m_camera.position.z), smooth * Time.deltaTime);
+        //m_camera.position = Vector3.Lerp(m_camera.position,  new Vector3(cx, cy, m_camera.position.z), smooth * Time.deltaTime);
 
     }
 }

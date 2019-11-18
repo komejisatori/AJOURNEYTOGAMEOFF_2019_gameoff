@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 581940991728303073}
   - component: {fileID: 114182681814838095}
   - component: {fileID: 6166720931877662022}
+  - component: {fileID: 5903338623439914660}
   m_Layer: 11
   m_Name: enemy_basic
   m_TagString: Untagged
@@ -150,3 +151,15 @@ MonoBehaviour:
   m_window_belong_to: 0
   m_think_time: 1
   m_outof_bounds: 0
+--- !u!114 &5903338623439914660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425208953190281700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43e78870aae0064589e8fd7afa09e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

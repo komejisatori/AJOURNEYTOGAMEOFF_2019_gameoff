@@ -17,7 +17,7 @@ public class text_movement : MonoBehaviour
     void Start()
     {
         m_texts = m_MovingTest.text;
-        m_MovingTest.text = "";
+        m_MovingTest.text = "_";
         m_charlist = m_texts.ToCharArray();
         m_MovingTest.rectTransform.offsetMax = new Vector2(m_MovingTest.rectTransform.offsetMax.x, -m_basicpos);
     }
@@ -31,14 +31,15 @@ public class text_movement : MonoBehaviour
 
     public IEnumerator GetAText()
     {
-        m_MovingTest.text += m_charlist[m_curpos];
+        m_MovingTest.text = m_MovingTest.text.Substring(0, m_MovingTest.text.Length-1) + m_charlist[m_curpos] + "_";
         if (m_curpos + 1 == m_texts.Length)
         {
 
         }
         else if (m_charlist[m_curpos + 1] == '\n')
         {
-            yield return new WaitForSeconds(0.5f);
+
+            yield return new WaitForSeconds(0.2f);
             m_MovingTest.rectTransform.offsetMax = new Vector2(m_MovingTest.rectTransform.offsetMax.x, 
                 m_MovingTest.rectTransform.offsetMax.y + m_upinstance);
             m_curpos += 1;
@@ -47,7 +48,7 @@ public class text_movement : MonoBehaviour
         }
         else if (m_charlist[m_curpos + 1] != '\n')
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
             m_curpos += 1;
             StartCoroutine(GetAText());
         }
