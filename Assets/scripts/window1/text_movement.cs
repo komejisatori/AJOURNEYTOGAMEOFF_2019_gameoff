@@ -7,9 +7,11 @@ public class text_movement : MonoBehaviour
 {
     // Start is called before the first frame update
     public Text m_MovingTest;
-
+    public bool m_start_hide;
     public int m_basicpos;
     public int m_upinstance;
+    public terrian[] m_terrainlist;
+    public avatar_move m_avatar;
     private string m_texts;
     private char[] m_charlist;
     private int m_curpos = 0;
@@ -34,6 +36,14 @@ public class text_movement : MonoBehaviour
         m_MovingTest.text = m_MovingTest.text.Substring(0, m_MovingTest.text.Length-1) + m_charlist[m_curpos] + "_";
         if (m_curpos + 1 == m_texts.Length)
         {
+            // avatar.starttomove
+            m_avatar.m_create = true;
+            m_avatar.transform.position = new Vector3(m_avatar.transform.position.x, m_avatar.transform.position.y, -2);
+            m_MovingTest.text = "";
+            foreach (terrian terr in m_terrainlist)
+            {
+                terr.gameObject.transform.position = new Vector3 (terr.gameObject.transform.position.x, terr.gameObject.transform.position.y, -2);
+            }
 
         }
         else if (m_charlist[m_curpos + 1] == '\n')
