@@ -7,7 +7,7 @@ public class text_movement : MonoBehaviour
 {
     // Start is called before the first frame update
     public Text m_MovingTest;
-    public bool m_start_hide;
+
     public int m_basicpos;
     public int m_upinstance;
     public terrian[] m_terrainlist;
@@ -18,6 +18,7 @@ public class text_movement : MonoBehaviour
     
     void Start()
     {
+
         m_texts = m_MovingTest.text;
         m_MovingTest.text = "_";
         m_charlist = m_texts.ToCharArray();
