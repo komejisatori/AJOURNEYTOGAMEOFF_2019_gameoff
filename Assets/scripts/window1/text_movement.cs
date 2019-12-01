@@ -39,11 +39,11 @@ public class text_movement : MonoBehaviour
         {
             // avatar.starttomove
             m_avatar.m_create = true;
-            m_avatar.transform.position = new Vector3(m_avatar.transform.position.x, m_avatar.transform.position.y, -2);
+            m_avatar.transform.position = new Vector3(m_avatar.transform.position.x, m_avatar.transform.position.y, -20);
             m_MovingTest.text = "";
             foreach (terrian terr in m_terrainlist)
             {
-                terr.gameObject.transform.position = new Vector3 (terr.gameObject.transform.position.x, terr.gameObject.transform.position.y, -2);
+                terr.gameObject.transform.position = new Vector3 (terr.gameObject.transform.position.x, terr.gameObject.transform.position.y, -20);
             }
 
         }

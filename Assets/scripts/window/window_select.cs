@@ -124,17 +124,27 @@ public class window_select : MonoBehaviour, IComparer<window_select>
     public void SetZIndex()
     {
         windows_frame[] sons = this.GetComponentsInChildren<windows_frame>();
+        windows_sframe[] ssons = this.GetComponentsInChildren<windows_sframe>();
         Canvas[] cans = this.GetComponentsInChildren<Canvas>();
         windows_body body = this.GetComponentInChildren<windows_body>();
+        windows_monos[] mono = this.GetComponentsInChildren<windows_monos>();
         foreach (windows_frame son in sons)
-        { 
-            son.transform.position = new Vector3(son.transform.position.x, son.transform.position.y, m_z_index * 10);
+        {
+            son.transform.position = new Vector3(son.transform.position.x, son.transform.position.y, m_z_index * 1f - 0.7f);
+        }
+        foreach (windows_sframe sson in ssons)
+        {
+            sson.transform.position = new Vector3(sson.transform.position.x, sson.transform.position.y, m_z_index * 1f - 1.0f);
         }
         foreach (Canvas can in cans)
         {
-            can.transform.position = new Vector3(can.transform.position.x, can.transform.position.y, m_z_index * 10 + 0.2f);
+            can.transform.position = new Vector3(can.transform.position.x, can.transform.position.y, m_z_index * 1f - 0.5f);
         }
-        body.transform.position = new Vector3(body.transform.position.x, body.transform.position.y, m_z_index * 10 + 1);
+        body.transform.position = new Vector3(body.transform.position.x, body.transform.position.y, m_z_index * 1f + 0.1f);
+        foreach (windows_monos m in mono)
+        {
+            m.transform.position = new Vector3(m.transform.position.x, m.transform.position.y, m_z_index * 1f - 0.5f);
+        }
     }
 
     public int Compare(window_select a, window_select b)

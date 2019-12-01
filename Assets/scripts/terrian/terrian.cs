@@ -9,6 +9,7 @@ public class terrian : MonoBehaviour
     private Rigidbody2D m_rig;
     public bool m_start_hide;
     private float m_originindex;
+    public bool m_cangive = false;
     void Start()
     {
         m_originindex = this.transform.position.z;
@@ -40,7 +41,10 @@ public class terrian : MonoBehaviour
 
     public void GiveGravity()
     {
-        m_sleep = false;
-        m_rig.constraints = RigidbodyConstraints2D.None;
+        if (m_cangive)
+        {
+            m_sleep = false;
+            m_rig.constraints = RigidbodyConstraints2D.None;
+        }
     }
 }

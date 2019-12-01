@@ -27,6 +27,11 @@ public class window_stack
         return instance;
     }
 
+    public static void Reload()
+    {
+        instance = null;
+    }
+
     public void PopWindow(int z_index)
     {
         window_select w_temp = m_windows_stack[z_index];
@@ -39,6 +44,20 @@ public class window_stack
         m_windows_stack[0] = w_temp;
         m_windows_stack[0].m_z_index = 0;
         m_windows_stack[0].SetZIndex();
+    }
+
+    public void DownWindow(int z_index)
+    {
+        window_select w_temp = m_windows_stack[z_index];
+        for (int i = z_index; i < m_len-1; i++)
+        {
+            m_windows_stack[i] = m_windows_stack[i + 1];
+            m_windows_stack[i].m_z_index = i;
+            m_windows_stack[i].SetZIndex();
+        }
+        m_windows_stack[m_len - 1] = w_temp;
+        m_windows_stack[m_len - 1].m_z_index = m_len - 1;
+        m_windows_stack[m_len - 1].SetZIndex();
     }
 
     public void SetWindowCollider(int z_index)

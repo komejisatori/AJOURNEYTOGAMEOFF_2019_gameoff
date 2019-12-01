@@ -17,6 +17,7 @@ public class avatar_jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (m_rig.velocity.y > 0)
         {
             m_collider.enabled = false;
@@ -25,5 +26,6 @@ public class avatar_jump : MonoBehaviour
         {
             m_collider.enabled = true;
         }
+        */
     }
 }

@@ -5,21 +5,19 @@ using UnityEngine;
 public class avatar_ob : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Vector3 m_targetpos;
-    private Transform m_follow;
-    public float distanceZ;
-    public float distanceY;
+    public avatar_move m_avatar;
+    
     //同一个场景里Y不变。
     void Start()
     {
-        m_follow = GameObject.FindWithTag("Player").transform;
-        transform.position = m_follow.position - new Vector3(0, distanceY, distanceZ);
+        this.gameObject.transform.position = new Vector3(m_avatar.gameObject.transform.position.x, m_avatar.gameObject.transform.position.y+100
+            ,this.gameObject.transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //m_targetpos = m_follow.position - new Vector3(0, distanceY, distanceZ);
-        //transform.position = m_targetpos;
+        this.gameObject.transform.position = new Vector3(m_avatar.gameObject.transform.position.x, m_avatar.gameObject.transform.position.y+100
+            , this.gameObject.transform.position.z);
     }
 }
