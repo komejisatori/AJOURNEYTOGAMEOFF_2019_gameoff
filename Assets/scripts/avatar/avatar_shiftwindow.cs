@@ -19,10 +19,22 @@ public class avatar_shiftwindow : MonoBehaviour
             Collider2D[] hitColliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(0.1f, 0.1f), 0);
             foreach (Collider2D hitc in hitColliders)
             {
+                if (cur_window.GetComponent<window1_startgame>()){
+                    if(this.transform.position.x < -1020){
+                        break;
+                    }
+                }
+                if (cur_window.GetComponent<chatbox_control>()){
+                    if(this.transform.position.x > 283){
+                        break;
+                    }
+                    if(this.transform.position.y > -400 && this.transform.position.y < -95){
+                        break;
+                    }
+                }
                 window_select window = hitc.GetComponentInParent<window_select>();
                 if (window && window.m_z_index != 0)
                 {
-                    
                     window_stack stack = window_stack.GetInstance();
                     stack.PopWindow(window.m_z_index);
                     stack.SetWindowCollider(0);
@@ -68,6 +80,7 @@ public class avatar_shiftwindow : MonoBehaviour
                         cur_window.GetComponent<chatbox_control>().StopAll();
                     }
                     cur_window = window;
+                    GameObject.FindWithTag("Player").GetComponent<avatar_move>().m_fall = true;
                     break;
                 }
             }

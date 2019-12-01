@@ -19,7 +19,10 @@ public class avatar_move : MonoBehaviour
     public float m_x;
     public float m_pos1;
     public float m_pos2;
+
+    public int m_jumpok;
     // Start is called before the first frame update
+    public bool m_fall;
     void Start()
     {
         m_x = this.gameObject.transform.position.x;
@@ -46,18 +49,25 @@ public class avatar_move : MonoBehaviour
         {
             float speed_temp = Input.GetAxis("Horizontal");
             speed_temp = speed_temp * m_speed_horizon;
-            m_rig.velocity = new Vector2(speed_temp, m_rig.velocity.y);
-            float cx = m_rig.position.x;
-            float cy = m_camera.position.y;
-            if (Input.GetKeyDown(KeyCode.J) )
+            
+            if(!m_fall){
+                m_rig.velocity = new Vector2(speed_temp, m_rig.velocity.y);
+            }
+            else {
+                m_rig.velocity = new Vector2(0, m_rig.velocity.y);
+            }
+            // float cx = m_rig.position.x;
+            // float cy = m_camera.position.y;
+            if (Input.GetKeyDown(KeyCode.J) && m_jumpok < 2)
             {
+                m_rig.velocity = new Vector2(speed_temp, 0);
                 m_rig.AddForce(new Vector2(0, m_speed_verical));
+                m_jumpok += 1;
             }
-            if (m_rig.velocity.y == 0)
-            {
-                cy = m_rig.position.y - distanceY;
-            }
-
+            // if (m_rig.velocity.y == 0)
+            // {
+            //     cy = m_rig.position.y - distanceY;
+            // }
             //m_camera.position = Vector3.Lerp(m_camera.position,  new Vector3(cx, cy, m_camera.position.z), smooth * Time.deltaTime);
         }
         else
@@ -96,6 +106,16 @@ public class avatar_move : MonoBehaviour
                     //Debug.Log("start");
                 }
             }
+        }
+    }
+
+    void OnCollisionEnter2D()
+    {
+        //Debug.Log("start");
+        if (m_rig.velocity.y < 1e-5)
+        {
+            m_jumpok = 0;
+            m_fall = false;
         }
     }
 }
