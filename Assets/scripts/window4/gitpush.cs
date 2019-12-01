@@ -20,7 +20,7 @@ public class gitpush : MonoBehaviour
         m_start_pos_x = this.gameObject.transform.position.x;
         m_start_pos_y = this.gameObject.transform.position.y; 
         m_start_pos_z = this.gameObject.transform.position.z;
-        this.gameObject.transform.position = new Vector3(10000, 10000, 40);
+        this.gameObject.transform.position = new Vector3(10000, 10000, 4);
     }
 
     // Update is called once per frame
@@ -28,11 +28,11 @@ public class gitpush : MonoBehaviour
     {
         if (m_rmoving)
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x-m_speed, this.gameObject.transform.position.y, 40);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x-m_speed, this.gameObject.transform.position.y, 4);
         }
         else if (m_moving)
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y+m_speed, 40);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y+m_speed, 4);
         }
     }
 
@@ -71,7 +71,7 @@ public class gitpush : MonoBehaviour
     {
         m_appear = false;
         m_rappear = false;
-        this.transform.position = new Vector3(10000, 10000, 40);
+        this.transform.position = new Vector3(10000, 10000, 4);
     }
 
     public IEnumerator ControlMove()
@@ -79,7 +79,7 @@ public class gitpush : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("moving");
         m_moving = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         Debug.Log("moving forward");
         m_moving = false;
         //Hidden();
