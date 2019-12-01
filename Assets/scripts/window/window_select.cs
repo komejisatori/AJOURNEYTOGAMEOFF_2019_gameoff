@@ -134,7 +134,7 @@ public class window_select : MonoBehaviour, IComparer<window_select>
         }
         foreach (windows_sframe sson in ssons)
         {
-            sson.transform.position = new Vector3(sson.transform.position.x, sson.transform.position.y, m_z_index * 1f - 1.0f);
+            sson.transform.position = new Vector3(sson.transform.position.x, sson.transform.position.y, m_z_index * 1f - 1f);
         }
         foreach (Canvas can in cans)
         {
