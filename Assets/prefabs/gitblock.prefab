@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6935029656689767269}
   - component: {fileID: 1039818827307129527}
   - component: {fileID: 5308942406611281270}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,8 +104,8 @@ GameObject:
   - component: {fileID: 8749352656063113993}
   - component: {fileID: 8749352656063113995}
   - component: {fileID: 4965668885962779167}
-  - component: {fileID: 5455916067052903223}
-  m_Layer: 9
+  - component: {fileID: 2420390280677288266}
+  m_Layer: 11
   m_Name: gitblock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2117932, y: 1.2070215}
   m_EdgeRadius: 0
---- !u!114 &5455916067052903223
+--- !u!114 &2420390280677288266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
