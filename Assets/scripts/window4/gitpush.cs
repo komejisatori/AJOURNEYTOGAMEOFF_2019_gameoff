@@ -15,6 +15,7 @@ public class gitpush : MonoBehaviour
     public float m_start_pos_z;
     public float m_speed;
     public trigger1 tr;
+    public ender m_ender;
     void Start()
     {
         m_start_pos_x = this.gameObject.transform.position.x;
@@ -28,7 +29,7 @@ public class gitpush : MonoBehaviour
     {
         if (m_rmoving)
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x-m_speed, this.gameObject.transform.position.y, 5);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x-(m_speed/2), this.gameObject.transform.position.y, 5);
         }
         else if (m_moving)
         {
@@ -84,12 +85,14 @@ public class gitpush : MonoBehaviour
         m_moving = false;
         //Hidden();
         tr.m_opened = false;
+        FindObjectOfType<avatar_shiftwindow>().m_canswitch = true;
         //yield return new WaitForSeconds(2f);
         //m_moving
     }
 
     public IEnumerator ControlRMove()
     {
+        m_ender.End();
         yield return new WaitForSeconds(1f);
         Debug.Log("moving");
         m_moving = true;
@@ -101,6 +104,7 @@ public class gitpush : MonoBehaviour
         m_moving = false;
         //Hidden();
         tr.m_opened = false;
+        FindObjectOfType<avatar_shiftwindow>().m_canswitch = true;
     }
 
 }

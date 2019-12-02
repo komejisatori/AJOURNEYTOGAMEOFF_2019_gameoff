@@ -6,15 +6,16 @@ public class avatar_shiftwindow : MonoBehaviour
 {
     // Start is called before the first frame update
     public window_select cur_window;
+    public bool m_canswitch;
     void Start()
     {
-        
+        m_canswitch = true;
     }
 
     // Update is called once per fram0.1
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && m_canswitch)
         {
             Collider2D[] hitColliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(0.1f, 0.1f), 0);
             foreach (Collider2D hitc in hitColliders)
@@ -51,10 +52,13 @@ public class avatar_shiftwindow : MonoBehaviour
                     }
                     if (window.GetComponent<gitpush>())
                     {
+                        m_canswitch = false;
                         if (window.GetComponent<gitpush>().m_appear)
                             StartCoroutine(window.GetComponent<gitpush>().ControlMove());
-                        else if(window.GetComponent<gitpush>().m_rappear)
+                        else if (window.GetComponent<gitpush>().m_rappear)
+                        {
                             StartCoroutine(window.GetComponent<gitpush>().ControlRMove());
+                        }
                     }
                     if (window.GetComponent<windows1>())
                     {
@@ -72,6 +76,7 @@ public class avatar_shiftwindow : MonoBehaviour
                     }
                     if (cur_window.GetComponent<gitpush>())
                     {
+                        m_canswitch = true;
                         stack.DownWindow(cur_window.m_z_index);
                         cur_window.GetComponent<gitpush>().Hidden();
                     }

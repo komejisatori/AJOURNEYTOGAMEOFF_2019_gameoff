@@ -19,7 +19,6 @@ public class avatar_move : MonoBehaviour
     public float m_x;
     public float m_pos1;
     public float m_pos2;
-
     public int m_jumpok;
     // Start is called before the first frame update
     public bool m_fall;

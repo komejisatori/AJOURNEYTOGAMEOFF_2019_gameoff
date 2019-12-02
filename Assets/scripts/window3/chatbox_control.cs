@@ -88,7 +88,7 @@ public class chatbox_control : MonoBehaviour
             }
             else
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
                 StartCoroutine(Endlist(list));
             }
         }
